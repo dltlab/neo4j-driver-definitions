@@ -1,17 +1,17 @@
 var path = require("path"),
 	fs = require("fs"),
 	webpack = require("webpack");
-	
+
 const nodeModules = fs.readdirSync("./node_modules").filter(d => d != ".bin");
 function ignoreNodeModules(context, request, callback) {
-	if (request[0] == ".")
+	if (request[0] === ".")
 		return callback();
-		
+
 	const module = request.split("/")[0];
 	if (nodeModules.indexOf(module) !== -1) {
 		return callback(null, "commonjs " + request);
 	}
-	
+
 	return callback();
 }
 
@@ -21,12 +21,12 @@ function createConfig(isDebug) {
 	if(isDebug) {
 		plugins.push(new webpack.BannerPlugin({banner: 'require("source-map-support").install();', raw: true, entryOnly: false}));
 	}
-	
+
 	if (!isDebug) {
 		plugins.push(new webpack.optimize.UglifyJsPlugin());
 		plugins.push(new webpack.BannerPlugin({banner: '#!/usr/bin/env node', raw: true, entryOnly: true}));
 	}
-	
+
 	// ---------------------
 	// WEBPACK CONFIG
 	return {
@@ -48,10 +48,10 @@ function createConfig(isDebug) {
 		},
 		module: {
 			loaders: [
-				{ 
+				{
 					test: /\.ts$/,
 					loader: "ts-loader",
-					exclude: /node_modules/ 
+					exclude: /node_modules/
 				}
 			]
 		},

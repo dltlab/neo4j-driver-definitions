@@ -1,3 +1,9 @@
+import {Driver} from "./driver";
+import {RoutingDriver} from "./routing-driver";
+import {Path, PathSegment, Relationship, UnboundRelationship} from "./graph-types";
+import {Result} from "./result";
+import {ResultSummary} from "./result-summary";
+import {Record} from "./record"
 /**
  * Construct a new Neo4j Driver. This is your main entry point for this
  * library.
@@ -58,18 +64,45 @@
  */
 export declare namespace v1 {
 	namespace auth {
-		let basic: (username: string, password: string, realm?: string) => {scheme: string, principal: string, credentials: string, realm?: string};
-		let ustom: (principal: string, credentials: string, realm: string, scheme: string, parameters?: any) => {scheme: string, principal: string, credentials: string, realm?: string};
+		let basic: (
+			username: string,
+			password: string,
+			realm?: string
+		) => {
+			scheme: string,
+			principal: string,
+			credentials: string,
+			realm?: string
+		};
+		let custom: (
+			principal: string,
+			credentials: string,
+			realm: string,
+			scheme: string,
+			parameters?: any
+		) => {
+			scheme: string,
+			principal: string,
+			credentials: string,
+			realm?: string
+		};
 	}
 	function driver(url: string, authToken: any, config?: any): Driver|RoutingDriver;
 }
 
-export declare const types: {Node: Node; Relationship: Relationship; UnboundRelationship: UnboundRelationship; PathSegment: PathSegment; Path:Path; Result: Result; ResultSummary: ResultSummary; Record: Record};
+export declare const types: {
+	Node: Node;
+	Relationship: Relationship;
+	UnboundRelationship: UnboundRelationship;
+	PathSegment: PathSegment;
+	Path:Path;
+	Result: Result;
+	ResultSummary: ResultSummary;
+	Record: Record
+};
 
 export declare const session: {READ: string; WRITE: string;}
 
 export declare const error: {SERVICE_UNAVAILABLE: string; SESSION_EXPIRED: string};
 
 export declare const forExport: {driver; int; isInt; integer; Neo4jError; auth; types; session; error};
-
-export declare default forExport;

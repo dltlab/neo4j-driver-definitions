@@ -19,8 +19,7 @@
   "author": "Gaston Ndanyuzwe <gaston.ndanyuzwe@infiniteacacia.com\"",
   "license": "MIT",
   "devDependencies": {
-    "@types/chalk": "^0.4.31",
-    "@types/es6-promise": "^0.0.32",
+    "@reactivex/rxjs": "^5.3.0",
     "@types/fs-extra": "0.0.34",
     "@types/node": "^6.0.46",
     "chalk": "^1.1.3",
