@@ -1,6 +1,6 @@
 import { debug } from "./log";
 import { alloc } from "./buf";
-import { utf8 } from "./utf8";
+import * as utf8  from "./utf8";
 import { Integer } from "../integer";
 import { int } from "../integer";
 import { newError } from './../error';

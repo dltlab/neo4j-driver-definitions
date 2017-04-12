@@ -28,14 +28,14 @@ export declare class Result {
    * @return {Promise} new Promise.
    * @access private
    */
-  protected _createPromise(): Promise<any>;
+  public _createPromise(): Promise<any>;
 
   /**
    * Create and return new Promise
    * @return {Promise} new Promise.
    * @access private
    */
-   promise(): Promise<any>;
+   public promise(): Promise<any>;
 
   /**
    * Waits for all results and calls the passed in function with the results.
@@ -45,7 +45,7 @@ export declare class Result {
    * @param {function(error: {message:string, code:string})} onRejected - Function to be called upon errors.
    * @return {Promise} promise.
    */
-  then(onFulfilled: (result: Result) => void, onRejected: (error: Error) => void): Promise<any>;
+  public then(onFulfilled: (result: Result) => void, onRejected: (error: Error) => void): Promise<any>;
 
   /**
    * Catch errors when using promises.
@@ -53,7 +53,7 @@ export declare class Result {
    * @param {function(error: {message:string, code:string})} onRejected - Function to be called upon errors.
    * @return {Promise} promise.
    */
-  catch(onRejected: (error: Error) => void): Promise<any>;
+  public catch(onRejected: (error: Error) => void): Promise<any>;
 
   /**
    * Stream records to observer as they come in, this is a more efficient method
@@ -66,5 +66,5 @@ export declare class Result {
    * @return
    */
 
-  subscribe(observer: Observer): Subscription
+  public subscribe(observer: Observer<Result>): Subscription
 }
